@@ -1,0 +1,158 @@
+<meta charset="UTF-8" />
+<div id="screen">
+  <h1>wordle</h1>
+  <div id="grid"></div>
+  <div id="keyBoard"></div>
+</div>
+
+<style>
+  body,
+  html {
+    background: #111;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  body,
+  html,
+  #screen {
+    height: 100vh;
+    width: 100%;
+  }
+  #screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .grid {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .row {
+    display: flex;
+    gap: 8px;
+  }
+  /* .cell { */
+    /* width: 60px; */
+    /* height: 60px; */
+    /* line-height: 60px; */
+    /* display: inline-block; */
+    /* margin: 4px; */
+    /* padding: 6px; */
+    /* font-size: 40px; */
+    /* font-weight: bold; */
+    /* perspective: 1000px; */
+  /* } */
+  /* .cell .front, */
+  /* .cell .back { */
+    /* width: 60px; */
+    /* height: 60px; */
+    /* border: 2px solid #444; */
+    /* backface-visibility: hidden; */
+	/* position: absolute; */
+	/* top: 0; */
+	/* left: 0; */
+    /* right: 0; */
+    /* bottom: 0; */
+  /* } */
+  /* .cell.solved .surface { */
+    /* transform: rotateY(180deg); */
+  /* } */
+/*  */
+  /* .cell .surface { */
+   /* transition: 0.6s; */
+	/* transform-style: preserve-3d; */
+    /* width: 100%; */
+    /* height: 100%; */
+	/* position: relative; */
+  /* } */
+/*  */
+  /* .cell.solved .back { */
+	/* transform: rotateY(180deg); */
+  /* } */
+  /* .cell.solved .front { */
+        	/* z-index: 3; */
+	/* transform: rotateY(0deg); */
+  /* } */
+  /* .cell .back { */
+    /* z-index: 1; */
+  /* } */
+  /* .cell .front { */
+    /* z-index: 2; */
+    /* transform: rotateY(180deg); */
+  /* } */
+  
+  .cell {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    margin: 4px;
+    padding: 6px;
+    font-size: 40px;
+    font-weight: bold;
+    perspective: 1000px;
+  }
+  .cell .front, .cell .back {
+    border: 2px solid #444;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .cell.solved .surface {
+    transform: rotateX(180deg);
+  }
+  .cell .surface {
+    transition-duration: 800ms;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .cell .front {
+    z-index: 2;
+  }
+  .cell .back {
+    z-index: 1;
+    transform: rotateX(180deg);
+  }
+  .keyboard {
+    flex: none;
+    padding: 20px;
+  }
+  .KeyForKeyBoard {
+    text-transform: uppercase;
+    padding: 15px;
+    margin: 3px;
+    border-radius: 5px;
+    height: 60px;
+    border: none;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+  }
+
+  @keyframes press {
+    from {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<script src="./app.js"></script>
